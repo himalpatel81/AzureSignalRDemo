@@ -1,0 +1,1 @@
+- Replace {AzureServiceEndPointConnectionString} with the Azure SignalR Service EndPoint Connection String in ConfigureServices method of Statup Class.
