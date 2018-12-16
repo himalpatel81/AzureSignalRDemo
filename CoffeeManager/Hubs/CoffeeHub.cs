@@ -15,11 +15,11 @@ namespace WiredBrain.Hubs
         private readonly CoffeeManager.ICoffeeManager _coffeeManager;
         private readonly AppTenant _appTenant;
 
-        public CoffeeHub(OrderChecker orderChecker, ICoffeeManager coffeeManager)//, AppTenant appTenant)
+        public CoffeeHub(OrderChecker orderChecker, ICoffeeManager coffeeManager, AppTenant appTenant)
         {
             _orderChecker = orderChecker;
             _coffeeManager = coffeeManager;
-            //_appTenant = appTenant;
+            _appTenant = appTenant;
         }
 
         public async Task GetUpdateForOrder(int orderId)

@@ -20,9 +20,10 @@ namespace WiredBrain
             services.AddSingleton(new Random());
             services.AddSingleton<OrderChecker>();
             services.AddHttpContextAccessor();
-            services.AddSignalR(options=> {
+            services.AddSignalR(options =>
+            {
                 options.EnableDetailedErrors = true;
-            }).AddMessagePackProtocol().AddAzureSignalR("{AzureServiceEndPointConnectionString}");
+            }).AddMessagePackProtocol();
             services.AddScoped<ICoffeeManager, CoffeeManager.CoffeeManager>();
 
         }
@@ -35,9 +36,9 @@ namespace WiredBrain
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseFileServer();
+            app.UseStaticFiles();
             app.UseMultitenancy<AppTenant>();
-            app.UseAzureSignalR(routes => routes.MapHub<CoffeeHub>("/coffeehub"));
+            app.UseSignalR(routes => routes.MapHub<CoffeeHub>("/coffeehub"));
             app.UseMvc();
         }
     }
